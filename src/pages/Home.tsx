@@ -5,6 +5,21 @@ import { RootState } from '../store';
 import ProductCard from '../components/products/ProductCard';
 import { CATEGORIES } from '../data/mockData';
 
+const CATEGORY_IMAGES: { [key: string]: string } = {
+    "Electronics": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=400",
+    "Computers": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400",
+    "Smart Home": "https://images.unsplash.com/photo-1558089687-f282ffcbc126?auto=format&fit=crop&q=80&w=400",
+    "Home & Kitchen": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=400",
+    "Fashion": "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&q=80&w=400",
+    "Books": "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&q=80&w=400",
+    "Gaming": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400",
+    "Sports": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=400",
+    "Beauty": "https://images.unsplash.com/photo-1596462502278-27bfdd403348?auto=format&fit=crop&q=80&w=400",
+    "Automotive": "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=400",
+    "Toys": "https://images.unsplash.com/photo-1566576912902-1d6db6b8d5cb?auto=format&fit=crop&q=80&w=400",
+    "Other": "https://images.unsplash.com/photo-1511556820780-d912e42b4980?auto=format&fit=crop&q=80&w=400"
+};
+
 const Home: React.FC = () => {
     const products = useSelector((state: RootState) => state.products.items);
 
@@ -46,7 +61,7 @@ const Home: React.FC = () => {
                             <h3 className="text-xl font-bold mb-4">{cat}</h3>
                             <div className="aspect-square bg-slate-100 rounded-md mb-4 overflow-hidden">
                                 <img
-                                    src={`https://source.unsplash.com/random/400x400?${cat.split(' ')[0]}`}
+                                    src={CATEGORY_IMAGES[cat] || `https://source.unsplash.com/random/400x400?${cat.split(' ')[0]}`}
                                     alt={cat}
                                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                                 />
